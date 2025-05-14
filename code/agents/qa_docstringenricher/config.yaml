@@ -1,0 +1,13 @@
+model_name: "ollama_chat/codestral"
+api_key_env_var: null
+api_base_env_var: "OLLAMA_API_BASE"
+
+generation_config:
+  temperature: 0.5
+  num_predict: 768
+
+max_retries: 3
+retry_delay: 5
+timeout: 180
+
+max_concurrency: 1

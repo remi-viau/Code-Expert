@@ -1,0 +1,13 @@
+# Configuration pour le Service d'Embedding
+# model_name doit être correctement préfixé pour LiteLLM.
+model_name: "ollama/nomic-embed-text"
+api_key_env_var: null # Ollama local
+api_base_env_var: "OLLAMA_API_BASE" # ex: http://localhost:11434
+# api_base: null
+
+max_text_length_for_embedding: 2048
+embedding_batch_size: 10
+
+max_retries: 2
+retry_delay: 3    # seconds
+timeout: 60       # seconds

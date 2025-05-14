@@ -1,0 +1,48 @@
+# # Agent: Templ Frontend
+# # Utilise un modèle Ollama (ex: gemma3) pour modifier les fichiers .templ.
+# # BaseAgent gère response_format pour Ollama (en le supprimant).
+# model_name: "ollama_chat/gemma3:27b-it-qat" # Préfixe pour LiteLLM
+# api_key_env_var: null # Ollama local n'a pas de clé
+# api_base_env_var: "OLLAMA_API_BASE" # ex: http://localhost:11434
+
+# generation_config:
+#   temperature: 0.7
+#   # Templ agent s'attend à du code brut, pas de response_format JSON.
+
+# # safety_settings: null
+
+# max_retries: 2
+# retry_delay: 3 # seconds
+# timeout: 180 # seconds
+
+# # system_instructions_for_init: null # Chargé depuis instructions.md
+# max_concurrency: 1
+####################################################################################
+model_name: "gemini/gemini-2.5-flash-preview-04-17" # Doit être préfixé pour LiteLLM
+api_key_env_var: "GEMINI_API_KEY"
+# api_base_env_var: null # Non nécessaire pour Gemini API standard
+
+generation_config:
+  temperature: 0.3
+  # response_format: {type: "json_object"} # BaseAgent s'en charge
+  max_output_tokens: 8192
+
+safety_settings:
+  - category: "HARM_CATEGORY_HARASSMENT"
+    threshold: "BLOCK_ONLY_HIGH"
+  - category: "HARM_CATEGORY_HATE_SPEECH"
+    threshold: "BLOCK_ONLY_HIGH"
+  - category: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+    threshold: "BLOCK_ONLY_HIGH"
+  - category: "HARM_CATEGORY_DANGEROUS_CONTENT"
+    threshold: "BLOCK_ONLY_HIGH"
+
+token_warning_threshold: 100000  # Avertir si le prompt dépasse 100k tokens (laisser marge pour Gemini Flash 128k)
+token_error_threshold: 120000    # Échouer si le prompt dépasse 120k tokens (très proche de la limite)
+
+max_retries: 3
+retry_delay: 5 # seconds
+timeout: 300 # seconds
+
+# system_instructions_for_init: null # Chargé depuis instructions.md
+max_concurrency: 1

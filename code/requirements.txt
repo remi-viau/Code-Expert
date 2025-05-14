@@ -1,0 +1,27 @@
+# requirements.txt for code-experts-global-python
+
+# Core library for interacting with Google's Generative AI models (Gemini)
+litellm==1.67.1
+tenacity
+faiss-cpu
+numpy
+tiktoken
+# nomic-embed-text
+
+# For loading .env files as fallback for environment variables
+python-dotenv
+PyYAML>=6.0
+
+# Improves the input() experience in the terminal (history, editing)
+# On Windows, alternative solutions might be needed or it might work
+# depending on the terminal (like Windows Terminal).
+readline; sys_platform != "win32"
+
+# --- Optional dependencies below ---
+# typer[all]
+# rich
+# pylint
+# flake8
+# black
+# isort
+# parso
