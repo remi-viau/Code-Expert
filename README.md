@@ -1,6 +1,8 @@
 # Code Experts - AI Multi-Agent Assistant for Code Modification and Quality
 
-<img src="assets/imgs/logo.jpg" alt="Logo" style="display: block; margin: auto; padding: 50" width="300">
+<p align="center">
+<img src="assets/imgs/logo.jpg" alt="Logo">
+</p>
 
 This project is a multi-agent LLM (Large Language Model) based system designed to assist with source code modification (currently targeting Go and `templ` templates) and to perform code quality analysis and improvements.
 
